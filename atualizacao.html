@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualização</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="./homer.png" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-color: #007bff; /* Azul forte */
+            --secondary-color: #0069d9; /* Azul secundário */
+            --background-gradient: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            --card-background: #ffffff;
+            --text-color: #2b2d42;
+            --light-text: #8d99ae;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 123, 255, 0.15);
+            --border-radius: 12px;
+            --transition-time: 0.3s;
+        }
+
+        body {
+            background: var(--background-gradient);
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: var(--text-color);
+        }
+
+        .container {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px var(--shadow-color);
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 400px;
+            margin: 1rem;
+            animation: fadeInUp 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-control {
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            transition: all var(--transition-time) ease;
+            background-color: white;
+            color: var(--text-color);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+        }
+
+        .input-group-text {
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            min-width: 45px;
+            justify-content: center;
+        }
+
+        .btn-warning {
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border: none;
+            padding: 0.75rem;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            transition: all var(--transition-time) ease;
+            letter-spacing: 0.5px;
+            color: white;
+            margin-top: 0.5rem;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-warning:hover {
+            background: linear-gradient(90deg, var(--secondary-color) 0%, #0056b3 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.25);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            text-align: center;
+        }
+
+        .mb-3 {
+            margin-bottom: 25px;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Atualização</h2>
+        <form id="frmAtualizacao">
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text" class="form-control" id="txtNome" placeholder="Digite o nome" required>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-user-circle"></i></span>
+                <input type="text" class="form-control" id="txtLogin" placeholder="Digite o login" required>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                <input type="password" class="form-control" id="txtSenha" placeholder="Digite a senha" required>
+                <span class="input-group-text" onclick="togglePassword()">
+                    <i id="eyeIcon" class="fas fa-eye"></i>
+                </span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-warning">Atualizar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('txtSenha');
+            const eyeIcon = document.getElementById('eyeIcon');
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                eyeIcon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+    </script>
+</body>
+
+</html>

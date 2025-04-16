@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="./homer.png" />
+    <style>
+        /* Cor principal azul */
+        :root {
+            --primary-color: #007bff; /* Azul forte */
+            --secondary-color: #007bff; /* Verde para o botão */
+        }
+
+        body {
+            background-color: #f4f7fc; /* Fundo claro */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 500px; /* Largura máxima do formulário */
+            margin: 0 auto; /* Centraliza o formulário */
+        }
+
+        h2 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .btn-success {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 8px 20px; /* Tamanho do botão menor */
+            font-size: 14px; /* Menor fonte */
+            width: auto;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .mb-3 label {
+            font-size: 16px;
+        }
+
+        .container .form-control:focus {
+            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25); /* Efeito de foco azul */
+        }
+
+        /* Centralizar o botão no formulário */
+        .form-group {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Cadastro</h2>
+        <form id="frmCadastro">
+            <div class="mb-3">
+                <label for="txtNome" class="form-label">Nome:</label>
+                <input type="text" class="form-control" id="txtNome" placeholder="Digite seu nome">
+            </div>
+            <div class="mb-3">
+                <label for="txtLogin" class="form-label">Login:</label>
+                <input type="text" class="form-control" id="txtLogin" placeholder="Digite seu login">
+            </div>
+            <div class="mb-3">
+                <label for="txtSenha" class="form-label">Senha:</label>
+                <input type="password" class="form-control" id="txtSenha" placeholder="Digite sua senha">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+    <script src="./cadastro.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
